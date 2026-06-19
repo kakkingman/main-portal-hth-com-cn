@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>华体会 · 知识库入口</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f9fc;
+            color: #1a2e3b;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page-wrap {
+            max-width: 1080px;
+            width: 100%;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 8px 28px rgba(0, 60, 80, 0.08);
+            padding: 36px 28px 44px;
+            margin: 20px 0 30px;
+        }
+
+        /* 网格卡片容器 */
+        .kb-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+            margin: 32px 0 28px;
+        }
+        .kb-card {
+            background: #ffffff;
+            border: 1px solid #d7e9ed;
+            border-radius: 20px;
+            padding: 22px 20px;
+            transition: all 0.18s ease;
+            box-shadow: 0 2px 6px rgba(62, 128, 142, 0.04);
+        }
+        .kb-card:hover {
+            border-color: #3fa9b9;
+            box-shadow: 0 8px 18px rgba(50, 150, 165, 0.10);
+            transform: translateY(-3px);
+        }
+        .kb-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #0b4a57;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .kb-card h3 small {
+            font-size: 0.75rem;
+            font-weight: 400;
+            background: #e1f2f5;
+            color: #176c7a;
+            padding: 2px 10px;
+            border-radius: 40px;
+            margin-left: auto;
+        }
+        .kb-card p {
+            font-size: 0.95rem;
+            color: #2a4d59;
+            margin-bottom: 10px;
+        }
+        .kb-card .meta-tag {
+            display: inline-block;
+            background: #eaf6f9;
+            color: #0b6b7a;
+            font-size: 0.7rem;
+            padding: 2px 12px;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+        }
+        .tag-bluegreen { background: #d7f0f0; color: #095c68; }
+
+        /* 段落与提示区 */
+        .intro-box {
+            background: #f0f9fb;
+            padding: 26px 24px;
+            border-radius: 24px;
+            margin: 28px 0 16px;
+            border-left: 4px solid #3fa9b9;
+        }
+        .intro-box p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        .intro-box p:last-child { margin-bottom: 0; }
+
+        .tip-note {
+            background: #fcf8e8;
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin: 20px 0 16px;
+            border: 1px solid #e2dbbf;
+            font-size: 0.95rem;
+            color: #3e4f3c;
+        }
+        .tip-note strong { color: #1b6b63; }
+
+        .related-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            background: #e6f4f6;
+            border-radius: 24px;
+            padding: 18px 24px;
+            margin: 18px 0 10px;
+            font-size: 0.9rem;
+            color: #215e6a;
+        }
+        .related-info span { display: inline-flex; align-items: center; gap: 6px; }
+
+        .faq-mini {
+            margin: 30px 0 12px;
+            border-top: 1px dashed #bdd7dd;
+            padding-top: 26px;
+        }
+        .faq-item {
+            margin-bottom: 16px;
+            border-bottom: 1px solid #e3f0f3;
+            padding-bottom: 14px;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-weight: 600;
+            color: #095f6b;
+            display: flex;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        .faq-q:before { content: "▸"; color: #3fa9b9; }
+        .faq-a {
+            color: #2d535e;
+            padding-left: 24px;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 650;
+            letter-spacing: -0.02em;
+            color: #084c59;
+            margin: 0 0 4px;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #3b6f7b;
+            border-bottom: 1px solid #cde3e8;
+            padding-bottom: 18px;
+            margin-bottom: 8px;
+        }
+        .footer-note {
+            margin-top: 36px;
+            font-size: 0.8rem;
+            color: #60828d;
+            text-align: center;
+            border-top: 1px solid #deedf1;
+            padding-top: 22px;
+        }
+
+        a {
+            color: #117786;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid transparent;
+            transition: border 0.1s;
+        }
+        a:hover { border-bottom-color: #3fa9b9; }
+
+        /* 移动端优化 */
+        @media (max-width: 640px) {
+            .page-wrap { padding: 22px 16px 30px; }
+            h1 { font-size: 1.8rem; }
+            .kb-grid { grid-template-columns: 1fr; gap: 16px; }
+            .intro-box { padding: 18px 16px; }
+            .related-info { flex-direction: column; gap: 6px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <h1>📚 华体会 · 知识库</h1>
+    <div class="subhead">稳定入口 · 结构化说明 · 日常参考</div>
+
+    <!-- 说明区 / 稳定入口描述 -->
+    <div class="intro-box">
+        <p>在日常访问中，一个可靠、直达的页面往往比什么都重要。对于不少朋友来说，<a href="https://main-portal-hth.com.cn">华体会</a> 是他们持续关注的信息落点——不需要频繁切换，也无需在多个标签页里翻找。这个页面所对应的主入口，就在那个熟悉的链接里。</p>
+        <p>如果你刚好需要回顾一下整体脉络、查阅常见说明，或者只是想从一个更安静的起点重新了解，那么下面的网格卡片和提示区应该能帮上忙。内容经过整理，偏向实用和稳定，没有花哨的干扰。</p>
+    </div>
+
+    <!-- 目录感网格卡片：知识库入口式 -->
+    <div class="kb-grid">
+        <div class="kb-card">
+            <h3>🔍 平台概况 <small>基础</small></h3>
+            <p>了解 <strong>华体会</strong> 所提供的服务范畴与功能定位。从注册到常用操作，覆盖多数用户关心的起点信息。</p>
+            <span class="meta-tag">#入门</span>
+        </div>
+        <div class="kb-card">
+            <h3>⚙️ 使用指引 <small>操作</small></h3>
+            <p>常见界面逻辑、偏好设置以及页面跳转时的注意事项。适合需要快速上手或找回某项功能的朋友。</p>
+            <span class="meta-tag tag-bluegreen">#流程</span>
+        </div>
+        <div class="kb-card">
+            <h3>🛡️ 安全与稳定 <small>须知</small></h3>
+            <p>关于访问环境、链接校验和日常使用时的一些小提醒。不复杂，但值得保留一份印象。</p>
+            <span class="meta-tag">#防护</span>
+        </div>
+        <div class="kb-card">
+            <h3>🧩 相关信息 <small>延伸</small></h3>
+            <p>一些零散但有用的补充：更新习惯、页面存档、以及如何与 <a href="https://main-portal-hth.com.cn">华体会</a> 保持顺畅连接。</p>
+            <span class="meta-tag tag-bluegreen">#备忘</span>
+        </div>
+    </div>
+
+    <!-- 提示区 -->
+    <div class="tip-note">
+        <strong>💡 提示：</strong> 如果你是通过某个书签或分享链接来到这里的，注意核对网址是否以 <code>main‑portal‑hth.com.cn</code> 开头。日常使用中，将 <a href="https://main-portal-hth.com.cn">华体会</a> 添加到浏览器收藏夹，可以减少输入错误的可能。另外，页面加载如果偏慢，可以尝试刷新或检查本地网络。
+    </div>
+
+    <!-- 相关信息区（自然嵌入入口） -->
+    <div class="related-info">
+        <span>📌 主页面：<a href="https://main-portal-hth.com.cn">华体会</a></span>
+        <span>🔖 适合保存为「知识库」标签</span>
+        <span>📅 内容整理于近期版本</span>
+    </div>
+
+    <!-- FAQ 摘要区（生活化 + 正式质感） -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">为什么要把这个页面作为知识库入口？</div>
+            <div class="faq-a">因为很多信息如果分散在各个角落，临时找起来挺费神。聚合在一个目录感较强的页面里，翻看的时候能省下一点时间，也减少遗漏。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">链接就是那个熟悉的 <a href="https://main-portal-hth.com.cn">华体会</a> 吗？</div>
+            <div class="faq-a">是的。整个知识库围绕这个稳定入口展开，你可以把它看作起点，也可以看作一个随时可以回来核对的路标。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">卡片里的信息会频繁变吗？</div>
+            <div class="faq-a">不会。这里侧重的是相对固定的说明和提醒，不追求追赶热点。如果将来有调整，也会保持同样的目录结构和入口。</div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <span>知识库风格 · 基于稳定入口构建 · 页面内容供参考</span>
+    </div>
+</div>
+</body>
+</html>

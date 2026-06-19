@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kakkingman.github.io/main-portal-hth-com-cn/sitemap.xml
