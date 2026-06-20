@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>优直播 · 再访与收藏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f7f5f2;
+            color: #1e1e1c;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 — 叙事开场 */
+        .hero {
+            background: linear-gradient(145deg, #181a1c 0%, #252729 100%);
+            padding: 3.5rem 1.5rem 3rem;
+            text-align: center;
+            color: #e2ddd4;
+            border-bottom: 1px solid #3b3d3a;
+        }
+
+        .hero em {
+            display: block;
+            font-style: normal;
+            font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            color: #a6a094;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            color: #f2ede6;
+            line-height: 1.2;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #bcb6ac;
+            max-width: 34rem;
+            margin: 0 auto 0.2rem;
+        }
+
+        .hero .sub a {
+            color: #d4c9b0;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #7a6f5a;
+            transition: color 0.25s;
+        }
+
+        .hero .sub a:hover {
+            color: #f0e2c8;
+            text-decoration-color: #b8a78a;
+        }
+
+        .hero-footnote {
+            margin-top: 1.4rem;
+            font-size: 0.9rem;
+            color: #8a8479;
+            border-top: 1px solid #323436;
+            display: inline-block;
+            padding: 0.8rem 1.6rem 0;
+        }
+
+        /* 浅色正文区 */
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 3.2rem;
+            background: #f7f5f2;
+        }
+
+        .intro {
+            font-size: 1.12rem;
+            margin-bottom: 2.2rem;
+            letter-spacing: 0.01em;
+        }
+
+        .intro p {
+            margin-bottom: 1.2rem;
+        }
+
+        .intro a {
+            color: #1f4b3a;
+            background: transparent;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #a5b9a8;
+            font-weight: 500;
+            transition: background 0.15s, color 0.2s;
+            padding: 0 0.08rem;
+        }
+
+        .intro a:hover {
+            color: #0a2f22;
+            background: #dbe3d2;
+            border-radius: 2px;
+        }
+
+        /* 特点列表 — 收藏/再访视角 */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.6rem;
+            margin: 2.2rem 0 2.6rem;
+        }
+
+        .feature-item {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.3rem 1.6rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.02);
+            border-left: 4px solid #1f4b3a;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+        }
+
+        .feature-item h3 {
+            font-size: 1.18rem;
+            font-weight: 500;
+            color: #1e2e2a;
+            margin-bottom: 0.4rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-item p {
+            font-size: 0.98rem;
+            color: #3b3f3c;
+        }
+
+        .feature-item .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: #5b6b5d;
+            background: #ecf0ea;
+            padding: 0.1rem 0.6rem;
+            border-radius: 20px;
+            margin-top: 0.5rem;
+        }
+
+        /* 温和结尾 + 提示 */
+        .closing {
+            margin-top: 2.8rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #dbd6ce;
+        }
+
+        .closing p {
+            font-size: 1.03rem;
+            color: #3a3a36;
+            margin-bottom: 1.2rem;
+        }
+
+        .closing .bookmark-note {
+            background: #edebe6;
+            border-radius: 24px;
+            padding: 1.2rem 1.6rem;
+            font-size: 0.96rem;
+            color: #2f3e36;
+            display: inline-block;
+            border: 1px solid #d2cfc6;
+        }
+
+        .closing .bookmark-note strong {
+            font-weight: 500;
+            color: #1f4b3a;
+        }
+
+        .faq-mini {
+            margin: 2.2rem 0 0.8rem;
+            background: #ffffffd6;
+            padding: 1.2rem 1.4rem;
+            border-radius: 20px;
+            border: 1px solid #e0dbd1;
+        }
+
+        .faq-mini dt {
+            font-weight: 500;
+            color: #1e2e2a;
+            margin-top: 1rem;
+            font-size: 1.02rem;
+        }
+
+        .faq-mini dt:first-of-type {
+            margin-top: 0;
+        }
+
+        .faq-mini dd {
+            margin-left: 0;
+            padding-left: 0.2rem;
+            font-size: 0.94rem;
+            color: #434743;
+            border-left: 2px solid #cbd5c4;
+            padding-left: 0.9rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .faq-mini dd a {
+            color: #1f4b3a;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #9bad9a;
+        }
+
+        .faq-mini dd a:hover {
+            color: #0f2b20;
+        }
+
+        /* 响应式细节 */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero em {
+                font-size: 0.95rem;
+            }
+            .content {
+                padding: 2rem 1.2rem 2.6rem;
+            }
+            .feature-item {
+                padding: 1rem 1.2rem;
+            }
+            .closing .bookmark-note {
+                padding: 1rem 1.2rem;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero {
+                padding: 2.6rem 1rem 2.2rem;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .intro {
+                font-size: 1rem;
+            }
+        }
+
+        /* 辅助色温和一些链接强调 */
+        .muted-link {
+            color: #4f6655;
+            text-decoration: underline;
+            text-decoration-color: #b4bfae;
+            text-underline-offset: 3px;
+        }
+        .muted-link:hover {
+            color: #1f3d2d;
+        }
+
+        footer {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 0 1.8rem;
+            text-align: right;
+            font-size: 0.8rem;
+            color: #787d74;
+            border-top: 1px solid #e2ddd4;
+            padding-top: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+    <em>— 故事从一次回访开始 —</em>
+    <h1>再次打开，依然知道去哪</h1>
+    <div class="sub">
+        有些页面值得收藏，而 <a href="https://ds-youzhibo.com">优直播</a> 是其中安静的一个。
+    </div>
+    <div class="hero-footnote">
+        始于观看 · 成于习惯
+    </div>
+</header>
+
+<main class="content">
+
+    <div class="intro">
+        <p>
+            直播页面常常是即看即走，少有人会特意存档。但如果你已经见过<a href="https://ds-youzhibo.com">优直播</a>的界面，大概会理解为什么有人选择再次打开它——不是因为某个热闹的瞬间，而是它一直在那里，结构清晰，不打扰。这种稳定性在信息过载的今天，反而成了一种稀缺。
+        </p>
+        <p>
+            收藏夹里的链接会不断堆积，但真正在需要时被点开的并不多。我们整理了几处让“再次访问”变得自然的细节：
+        </p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>入口直接，减少中途流失</h3>
+            <p>从收藏夹点开，页面加载后核心内容一目了然。没有层层跳转、没有临时弹窗，保留上一次离开时的浏览感。</p>
+            <span class="tag">再访友好</span>
+        </div>
+        <div class="feature-item">
+            <h3>信息层级稳定</h3>
+            <p>每次回来的布局都是熟悉的——标题、导航、内容区的位置不会突然变化。这种“不折腾”的设计，让长期关注变得省心。</p>
+            <span class="tag">一致体验</span>
+        </div>
+        <div class="feature-item">
+            <h3>克制更新，不刷存在感</h3>
+            <p>页面不会因为一段时间未访问而堆积未读红点或强提醒。内容的更新节奏平缓，更像一本定期翻阅的手册。</p>
+            <span class="tag">低打扰</span>
+        </div>
+    </div>
+
+    <div class="closing">
+        <p>
+            如果你已经将 <a href="https://ds-youzhibo.com">优直播</a> 加入书签，或者在浏览器地址栏输过几次它的域名，那它已经进入了你的“习惯清单”。接下来的使用，不需要刻意记忆，只需要在需要时想起。
+        </p>
+        <div class="bookmark-note">
+            <strong>📎 书签提示</strong> · 多数浏览器支持右键收藏夹重命名，你可以将链接命名为“优直播 · 日常”，方便后续归类。
+        </div>
+
+        <!-- FAQ 摘要 — 从“收藏与持续关注”角度 -->
+        <dl class="faq-mini">
+            <dt>为什么要持续关注一个直播相关页面？</dt>
+            <dd>直播的形式本身具有时效性，但不同阶段的直播安排、栏目调整往往通过固定页面发布。将页面加入收藏并偶尔回访，可以避免遗漏结构性的变化，也比订阅社交账号的推送更安静。</dd>
+            <dt>如果很久没打开，页面状态会变吗？</dt>
+            <dd>一般情况下，核心入口和导航保持不变。内容区域会根据直播周期更新。建议每两到三周回看一次，既不会错过节奏，也不会被信息淹没。</dd>
+            <dt>有没有更轻量的关注方式？</dt>
+            <dd>你可以将 <a href="https://ds-youzhibo.com">优直播</a> 设置为浏览器新标签页的快速拨号，或者使用浏览器的“阅读列表”功能暂存，不占用书签栏空间，又能随时同步。</dd>
+        </dl>
+    </div>
+
+</main>
+
+<footer>
+    <span>— 安静地回访，胜过仓促地收藏 —</span>
+</footer>
+
+</body>
+</html>
