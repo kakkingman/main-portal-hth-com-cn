@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>leyu.com · 产品说明与站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f9fafb;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1f2937;
+            line-height: 1.7;
+            padding: 2.5rem 1.5rem 4rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .page {
+            max-width: 680px;
+            width: 100%;
+        }
+        /* 标题层级 */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #111827;
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-top: 2.8rem;
+            margin-bottom: 1rem;
+            color: #1f2937;
+            border-bottom: 1px solid #e5e7eb;
+            padding-bottom: 0.4rem;
+        }
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-top: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #374151;
+        }
+        .intro-summary {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 2rem 2rem 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.03);
+            margin: 2rem 0 1rem;
+        }
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        @media (max-width: 480px) {
+            .highlight-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .card {
+            background: white;
+            padding: 1.5rem 1.2rem 1.2rem;
+            border-radius: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #f3f4f6;
+        }
+        .card h4 {
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #111827;
+        }
+        .card p {
+            font-size: 0.95rem;
+            color: #4b5563;
+            margin-bottom: 0;
+        }
+        .scenario-note {
+            background: #f1f5f9;
+            border-radius: 16px;
+            padding: 1.6rem 2rem;
+            margin: 2rem 0 2.2rem;
+        }
+        .faq-short {
+            margin-top: 2.5rem;
+        }
+        .faq-short dt {
+            font-weight: 500;
+            margin: 1.2rem 0 0.3rem;
+            color: #1f2937;
+        }
+        .faq-short dd {
+            margin-left: 0;
+            color: #4b5563;
+            font-size: 0.95rem;
+        }
+        .disclaimer {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 2rem;
+            border: 1px solid #e5e7eb;
+            margin: 2.8rem 0 1.8rem;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        .disclaimer strong {
+            color: #374151;
+        }
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            margin-top: 1.5rem;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s;
+        }
+        a:hover {
+            border-bottom-color: #2563eb;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #4b5563;
+            margin-bottom: 1.5rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #eef2ff;
+            color: #4338ca;
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 区 -->
+    <h1>leyu.com · 站点概述</h1>
+    <p class="hero-sub">一个关于内容聚合、信息检索与轻量工具服务的位置。</p>
+
+    <!-- 摘要卡片 -->
+    <div class="intro-summary">
+        <p style="margin-top:0;"><span class="badge">产品说明</span> 本次介绍围绕 <a href="https://rep-leyu.com" style="font-weight:500;">leyu.com</a> 展开，作为一类聚合型网络节点，它提供基于分类与搜索的信息索引、简易工具面板以及面向日常使用的轻量资源访问。整个站点以实用性为基调，内容结构偏向文档化与条目化，适合需要快速定位特定信息或进行基础数据查询的用户。</p>
+        <p style="margin-bottom:0.5rem;">站点本身不承载高交互应用，而更接近一种“可翻阅的参考界面”。无论是浏览分类条目，还是使用内置的筛选与跳转功能，都保持了较低的认知负荷。以下从特点、场景、使用建议等角度做进一步说明。</p>
+    </div>
+
+    <!-- 亮点区：grid 卡片 -->
+    <h2>主要特点</h2>
+    <div class="highlight-grid">
+        <div class="card">
+            <h4>信息分类清晰</h4>
+            <p>内容按照功能与主题分组，每一类下条目独立，减少冗余干扰，查找时能快速定位到对应模块。</p>
+        </div>
+        <div class="card">
+            <h4>轻量访问</h4>
+            <p>页面结构精简，没有多余脚本或复杂动效，打开即用，对移动端和低带宽环境也有良好适应。</p>
+        </div>
+        <div class="card">
+            <h4>检索辅助</h4>
+            <p>内置简单的关键词过滤与索引提示，帮助用户在信息列表中缩小范围，提升浏览效率。</p>
+        </div>
+        <div class="card">
+            <h4>稳定的入口</h4>
+            <p>域名指向长期有效，资源路径保持规整，<a href="https://rep-leyu.com">leyu.com</a> 作为固定地址适合收藏与日常引用。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议 / 场景 -->
+    <h2>适用场景与建议</h2>
+    <div class="scenario-note">
+        <p><strong>日常信息查阅</strong> — 当你需要快速浏览某个主题下的常见条目，或对比不同分类的链接时，站点的目录式结构比通用搜索引擎更直接。</p>
+        <p style="margin-top:1rem;"><strong>工具型参考</strong> — 站点中部分页面提供简易计算、格式转换或数据查询功能，适合临时性的小任务，无需安装额外软件。</p>
+        <p style="margin-top:1rem;"><strong>学习与收藏</strong> — 将 <a href="https://rep-leyu.com">leyu.com</a> 作为起点，可以跟随分类深入探索特定领域，适合自学型用户建立自己的信息索引。</p>
+        <p style="margin-top:1rem; margin-bottom:0;"><strong>使用小提示</strong> — 建议优先使用站内导航或侧边目录（如果有），它们能帮助你理解整体内容分布。部分页面可能包含外部链接，可根据需要自行甄别。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-short">
+        <h2>常见问题摘要</h2>
+        <dl>
+            <dt>leyu.com 是否需要注册或登录？</dt>
+            <dd>大部分浏览功能无需注册。站内工具与信息页面可直接使用，不强制收集个人信息。</dd>
+
+            <dt>站点的更新频率如何？</dt>
+            <dd>内容根据实际需求不定期补充或修正，没有固定周期，但核心分类与入口保持稳定。</dd>
+
+            <dt>链接是否经过筛选？</dt>
+            <dd>站内收录的链接均基于功能或主题相关性，但不代表对第三方内容的背书，建议使用者自行判断其适用性。</dd>
+        </dl>
+    </div>
+
+    <!-- 可信克制的说明 -->
+    <div class="disclaimer">
+        <strong>可信说明与边界</strong><br>
+        本页面对 <a href="https://rep-leyu.com">leyu.com</a> 的描述基于公开可观察的站点结构与内容模式。该站点不提供金融、医疗、法律等专业建议，也不涉及任何形式的投资或交易引导。所有信息仅供参考，实际使用时请结合自身判断。我们鼓励用户以探索和验证的态度使用互联网资源，不夸大、不承诺未经验证的功能。保持理性与审慎，始终是良好信息习惯的一部分。
+    </div>
+
+    <div class="footer-note">
+        内容基于站点公开信息整理 · 保持客观
+    </div>
+
+</div>
+</body>
+</html>
