@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>电竞牛 · 不止游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f4f8fa;
+      color: #1a2b33;
+      line-height: 1.7;
+      padding: 2rem 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* 简洁博客头部 */
+    .blog-header {
+      margin-bottom: 3.5rem;
+      border-bottom: 2px solid #c7e2e9;
+      padding-bottom: 1.8rem;
+    }
+    .blog-title {
+      font-size: 2.2rem;
+      font-weight: 550;
+      letter-spacing: -0.02em;
+      color: #0e4352;
+      line-height: 1.2;
+    }
+    .blog-title small {
+      font-size: 1rem;
+      font-weight: 400;
+      color: #4f717e;
+      margin-left: 0.5rem;
+    }
+    .blog-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      color: #3b5e6b;
+      font-size: 0.95rem;
+      border-left: 3px solid #34a0a4;
+      padding-left: 1.2rem;
+    }
+    .blog-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+
+    /* 网格卡片系统 —— 蓝绿主调 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.8rem;
+      margin: 2.5rem 0;
+    }
+    @media (min-width: 540px) {
+      .card-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    .card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 20px rgba(12, 68, 82, 0.06), 0 2px 6px rgba(0, 40, 50, 0.03);
+      transition: all 0.2s ease;
+      border: 1px solid #e2eff3;
+    }
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(12, 90, 100, 0.10);
+      border-color: #b0d3db;
+      transform: translateY(-3px);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: #0b4d5a;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .card h3::before {
+      content: "▹";
+      color: #2e9b9f;
+      font-size: 1.1rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #2c4b56;
+    }
+
+    /* 正文段落 — 生活化叙述 */
+    .content-article {
+      margin: 3rem 0 2.5rem 0;
+    }
+    .content-article p {
+      margin-bottom: 1.4rem;
+      font-size: 1.05rem;
+      color: #1d3842;
+    }
+    .content-article p:first-of-type::first-letter {
+      font-size: 2.2rem;
+      font-weight: 500;
+      color: #217a82;
+      margin-right: 0.2rem;
+      float: left;
+      line-height: 0.8;
+    }
+
+    /* 引用提示块 — 蓝绿点缀 */
+    .insight-block {
+      background: #dceef2;
+      border-left: 6px solid #2e9b9f;
+      padding: 1.5rem 2rem;
+      border-radius: 16px 32px 32px 16px;
+      margin: 2.8rem 0;
+      font-size: 1rem;
+      color: #12434f;
+      box-shadow: 0 2px 10px rgba(50, 140, 150, 0.06);
+    }
+    .insight-block strong {
+      display: block;
+      font-weight: 550;
+      color: #09525f;
+      margin-bottom: 0.25rem;
+    }
+    .insight-block p {
+      margin: 0.25rem 0;
+    }
+
+    /* 访问句 / 自然链接嵌入 */
+    .visit-sentence {
+      background: #ffffffd9;
+      backdrop-filter: blur(2px);
+      padding: 1.2rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid #b7d7df;
+      font-size: 1rem;
+      margin: 1rem 0 2.5rem 0;
+    }
+    .visit-sentence a {
+      color: #16767e;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid #7ec2c7;
+      padding-bottom: 1px;
+      transition: border-color 0.15s;
+    }
+    .visit-sentence a:hover {
+      border-bottom-color: #09525f;
+      color: #04343e;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      background: #f0f7f9;
+      padding: 2rem 1.8rem;
+      border-radius: 32px;
+      margin-top: 2rem;
+    }
+    .faq-summary details {
+      margin-bottom: 0.8rem;
+      border-bottom: 1px dashed #b6d2da;
+      padding-bottom: 0.6rem;
+    }
+    .faq-summary summary {
+      font-weight: 500;
+      color: #0c4f5c;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+    .faq-summary summary::before {
+      content: "↳ ";
+      color: #2e9b9f;
+      font-weight: 600;
+      margin-right: 0.3rem;
+    }
+    .faq-summary details[open] summary::before {
+      content: "↲ ";
+    }
+    .faq-summary p {
+      margin: 0.5rem 0 0.2rem 1.6rem;
+      color: #2b515e;
+      font-size: 0.95rem;
+    }
+
+    /* 页脚 */
+    .blog-footer {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #cfdfe4;
+      font-size: 0.9rem;
+      color: #3b6472;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 移动端微调 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 1rem;
+      }
+      .blog-title {
+        font-size: 1.8rem;
+      }
+      .blog-meta {
+        flex-direction: column;
+        gap: 0.3rem;
+        padding-left: 1rem;
+      }
+      .card {
+        padding: 1.4rem 1.2rem;
+      }
+      .insight-block {
+        padding: 1.2rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 博客头部：标题 + 导语 -->
+  <header class="blog-header">
+    <h1 class="blog-title">
+      电竞牛<small>· 日常与竞技之间</small>
+    </h1>
+    <div class="blog-meta">
+      <span>📆 2025 · 春</span>
+      <span>🏷️ 游戏 / 生活 / 社群</span>
+      <span>✏️ 随笔</span>
+    </div>
+    <p style="margin-top: 1.2rem; color: #2a5665; font-size: 1.05rem;">
+      这里不谈天花乱坠的术语，只聊聊那些真正留在屏幕前的时刻。
+    </p>
+  </header>
+
+  <!-- 网格卡片：特点 / 场景 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>不只是胜负</h3>
+      <p>一场匹配、一次团战，或者只是开黑时的玩笑话——电竞的魅力往往藏在比分之外。牛这个字，在这里是一种踏实、接地气的陪伴。</p>
+    </div>
+    <div class="card">
+      <h3>日常手感</h3>
+      <p>工作日晚上的一局，周末下午的练习赛，慢慢调整键位和灵敏度。和熟悉的队友打出配合，比单纯的段位更让人放松。</p>
+    </div>
+    <div class="card">
+      <h3>小圈子，真交流</h3>
+      <p>没有嘈杂的刷屏，也不追求流量。在<a href="https://main-esportsbull.com" style="color:#16767e; text-decoration: underline;">电竞牛</a>，更接近早期论坛那种认识朋友、认真讨论游戏的感觉。</p>
+    </div>
+    <div class="card">
+      <h3>游戏之外</h3>
+      <p>硬件的取舍、外设的清洁、长时间坐姿的调整……这些边角料话题，反而构成了每天两小时最真实的体验。</p>
+    </div>
+  </div>
+
+  <!-- 正文：多段叙述 -->
+  <div class="content-article">
+    <p>
+      大概是从大学宿舍开始，屏幕里的枪火声就成了背景白噪音。后来工作了，虽然时间被切碎，但每天还是会留出四十分钟，戴上耳机，进入另一个节奏。这种习惯没有因为年龄而改变，反而慢慢沉淀成一种自我整理的方式。
+    </p>
+    <p>
+      所谓“电竞牛”，在我理解里更像一种态度——不把游戏当作逃避，也不把它神话。认真对待每一局，但也接受翻车和状态起伏。就像生活里那些需要耐心的事，投入了不一定立刻有回报，但过程本身带来某种秩序感。
+    </p>
+    <p>
+      今年开始尝试记录一些对局复盘，不是专业的战术分析，只是写写自己当时的判断和失误。队友偶尔会分享他们的视角，几条留言就能让原本模糊的决策变得清晰。这种交流没有负担，却能实实在在提升体验。
+    </p>
+  </div>
+
+  <!-- 引用提示块 -->
+  <div class="insight-block">
+    <strong>📌 一点观察</strong>
+    <p>很多人觉得竞技游戏的核心是“赢”，但待久了会发现，真正让人留下来的往往是那些无关胜负的瞬间：默契的补位、赛后的一句“nice try”、甚至共用一套连败表情包。这些微小的连接，才是社区最耐用的部分。</p>
+  </div>
+
+  <!-- 访问句 —— 自然嵌入链接 -->
+  <div class="visit-sentence">
+    如果你也习惯在游戏里找点生活之外的呼吸感，不妨去 <a href="https://main-esportsbull.com">电竞牛</a> 翻翻帖子，那里有不少普通玩家的日常记录。
+  </div>
+
+  <!-- FAQ 摘要（小型） -->
+  <div class="faq-summary">
+    <details>
+      <summary>「电竞牛」适合什么玩家？</summary>
+      <p>面向大多数普通玩家——不追求顶分局，也不排斥娱乐模式。只要你对游戏本身有兴趣，就能找到可以聊的话题。</p>
+    </details>
+    <details>
+      <summary>需要注册才能浏览吗？</summary>
+      <p>大部分内容公开可见，回复或收藏需要简单的账号。注册流程很轻，没有复杂的验证门槛。</p>
+    </details>
+    <details>
+      <summary>内容更新频率如何？</summary>
+      <p>以玩家自发分享为主，每天都有新帖。没有固定编辑排期，但比较热闹的板块通常每小时都有动态。</p>
+    </details>
+  </div>
+
+  <!-- 页脚 -->
+  <footer class="blog-footer">
+    <span>基于真实节奏 · 不赶场</span>
+    <span>电竞牛 · 2025</span>
+  </footer>
+
+</div>
+</body>
+</html>
